@@ -1,20 +1,24 @@
 class RequestsController < ApplicationController
 
-  def analyze
-    response = Unirest.post "https://twinword-sentiment-analysis.p.mashape.com/analyze/",
+  def self.analyze(text)
+    response = Unirest.get "https://twinword-sentiment-analysis.p.mashape.com/analyze/",
       headers:{
         "X-Mashape-Key" => ENV["TEST_KEY"],
         "Content-Type" => "application/x-www-form-urlencoded",
         "Accept" => "application/json"
       },
       parameters:{
-        "text" => params[:q]
+        "text" => text
       }
-      raise
-      response.body
+
+      @response = response.body["type"]
+      # redirect_to analyzed_path
   end
 
   def about
+  end
+
+  def analyzed
   end
 
 end
