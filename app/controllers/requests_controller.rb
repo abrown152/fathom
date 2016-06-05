@@ -10,15 +10,7 @@ class RequestsController < ApplicationController
       parameters:{
         "text" => text
       }
-
       @response = response.body["type"]
-      # redirect_to analyzed_path
-  end
-
-  def about
-  end
-
-  def analyzed
   end
 
 end
