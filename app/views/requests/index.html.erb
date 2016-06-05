@@ -1,1 +1,8 @@
-<h1>Hello, World</h1>
+<h3>Hello, World</h3>
+
+<h4>Please enter the text you'd like to analyze...</h4>
+<%= form_tag analyze_path do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
