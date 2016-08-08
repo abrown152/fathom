@@ -1,9 +1,11 @@
 <h4>Results</h4>
 
-<% if RequestsController.analyze(params[:q]) == "negative" %>
+<%= RequestsController.analyze(params[:q]).upcase %>
+
+<!-- <% if RequestsController.analyze(params[:q]) == "negative" %>
   <h3>Negative Nancy</h3>
 <% else %>
   <h3>Positive Paula</h3>
-<% end %>
+<% end %> -->
 
 <p>Analyzed Text: "<%= params[:q] %>"</p>
