@@ -3,9 +3,9 @@ require 'httparty'
 class FathomWrapper
   BASE_URL = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 
-  # def self.search(keyword)
-  #   HTTParty.get(BASE_URL + "v1/suggestions/search?query=" + keyword).parsed_response
-  # end
+  def self.search
+    HTTParty.get(BASE_URL + "?screen_name=Alysia_Brownn&count=2").parsed_response
+  end
   #
   # def self.top_twenty
   #   HTTParty.get(BASE_URL + "v1/suggestions/top").parsed_response
