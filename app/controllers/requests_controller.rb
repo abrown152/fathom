@@ -13,4 +13,8 @@ class RequestsController < ApplicationController
       @response = response.body["type"]
   end
 
+  def search
+    @search_results = FathomWrapper.search
+  end
+
 end

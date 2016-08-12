@@ -1,11 +1,13 @@
 <h4>Results</h4>
 
+<<<<<<< HEAD
 <%= RequestsController.analyze(params[:q]).upcase %>
-
-<!-- <% if RequestsController.analyze(params[:q]) == "negative" %>
+=======
+<% if RequestsController.analyze(params[:q]) == "negative" %>
   <h3>Negative Nancy</h3>
 <% else %>
   <h3>Positive Paula</h3>
-<% end %> -->
+<% end %>
+>>>>>>> parent of de99fdf... Updated positive/negative results display to include neutral.
 
 <p>Analyzed Text: "<%= params[:q] %>"</p>
