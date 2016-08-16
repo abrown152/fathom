@@ -10,4 +10,9 @@
 
 <p>Analyzed Text: "<%= params[:q] %>"</p>
 
-<%= RequestsController.hello %>
+<% RequestsController.pull_tweets.each do |tweet| %>
+  <p>Text: <%= tweet["text"] %></p>
+  <p>Location: <%= tweet["user"]["location"] %></p>
+  <p>Username: <%= tweet["user"]["screen_name"] %></p>
+  <br>
+<% end %>

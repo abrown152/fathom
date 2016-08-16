@@ -15,25 +15,19 @@ class RequestsController < ApplicationController
         "text" => text
       }
       @response = response.body["type"]
-
   end
 
-  def self.hello
-    puts "^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^"
-    r = HTTParty.get("https://api.twitter.com/1.1/search/tweets.json?q=hello")
-    # return r
-    # puts client.class
-    # @client is still nil
 
+  def self.pull_tweets
     # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
     access_token = prepare_access_token
 
     # use the access token as an agent to get the home timeline
-    response = access_token.request(:get, "https://api.twitter.com/1.1/search/tweets.json?q=hello")
+    response = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=Alysia%20Brownn&count=100")
 
-    return JSON.parse(response["statuses"])
+    tweets = JSON.parse(response.body)
+    # returns most recent 100 tweets
+    return tweets
   end
-
-  # hello = @client.user("Alysia_Brownn")
 
 end

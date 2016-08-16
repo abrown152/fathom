@@ -1,17 +1,11 @@
 require 'twitter'
 require 'oauth'
 
-client = Twitter::REST::Client.new do |config|
-  config.consumer_key = ENV["TWITTER_KEY"]
-  config.consumer_secret = ENV["TWITTER_SECRET"]
-  config.oauth_token = ENV["TWITTER_ACCESS_TOKEN"]
-  config.oauth_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
-end
-
-# client.update("I'm tweeting with @gem!")
-# Twitter::REST::Client.new do |config|
-#   config.consumer_key    = "TWITTER_KEY"
-#   config.consumer_secret = "TWITTER_SECRET"
+# client = Twitter::REST::Client.new do |config|
+#   config.consumer_key = ENV["TWITTER_KEY"]
+#   config.consumer_secret = ENV["TWITTER_SECRET"]
+#   config.oauth_token = ENV["TWITTER_ACCESS_TOKEN"]
+#   config.oauth_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
 # end
 
 def prepare_access_token
