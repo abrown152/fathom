@@ -17,6 +17,10 @@ gem 'sqlite3'
 
 gem 'turbolinks'
 
+gem 'httparty'
+gem 'twitter'
+gem 'oauth'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
