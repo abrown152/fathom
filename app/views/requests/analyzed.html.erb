@@ -1,6 +1,8 @@
 <h4>Results</h4>
 
-<%= RequestsController.analyze(params[:q]).upcase %>
+<% RequestsController.analyze(params[:q]).each do |tweet| %>
+  <p><%= tweet["text"] %></p><br>
+<% end %>
 
 <!-- <% if RequestsController.analyze(params[:q]) == "negative" %>
   <h3>Negative Nancy</h3>
@@ -9,10 +11,3 @@
 <% end %> -->
 
 <p>Analyzed Text: "<%= params[:q] %>"</p>
-
-<% RequestsController.pull_tweets.each do |tweet| %>
-  <p>Text: <%= tweet["text"] %></p>
-  <p>Location: <%= tweet["user"]["location"] %></p>
-  <p>Username: <%= tweet["user"]["screen_name"] %></p>
-  <br>
-<% end %>

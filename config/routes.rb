@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'requests#index'
+  root 'requests#analyze'
   get '/analyze', :to => 'requests#analyze', as: 'analyze'
   post '/analyze', :to => 'requests#analyzed', as: 'analyzed'
 
