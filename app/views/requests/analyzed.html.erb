@@ -1,9 +1,3 @@
-<h4>Results</h4>
+<p>Analyzed Twitter Handle: @<%= params[:q] %></p>
 
-<% RequestsController.analyze(params[:q]).each do |tweet| %>
-  <% if tweet["text"][0..1] != "RT" %>
-    <p><%= tweet["text"] %></p><br>
-  <% end %>
-<% end %>
-
-<p>Analyzed Text: "<%= params[:q] %>"</p>
+<p>Result: <%= RequestsController.analyze(params[:q]) %></p><br>
