@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   get '/about', :to => 'requests#about', as: 'about'
 
+  post '/search', :to => 'requests#search', as: 'search'
+
+
 end

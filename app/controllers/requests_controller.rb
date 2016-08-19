@@ -65,6 +65,7 @@ class RequestsController < ApplicationController
       @response = response.body["type"]
   end
 
+<<<<<<< HEAD
 
   # def self.pull_tweets(handle)
   #   # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
@@ -97,5 +98,10 @@ class RequestsController < ApplicationController
   #   # returns most recent 100 tweets
   #   return tweets
   # end
+=======
+  def search
+    @search_results = FathomWrapper.search
+  end
+>>>>>>> 6a3d2a835b1d66104dd24b4ae1f3131494dcc5e9
 
 end

@@ -1,9 +1,24 @@
 <h4>Results</h4>
 
+<<<<<<< HEAD
 <% RequestsController.analyze(params[:q]).each do |tweet| %>
   <% if tweet["text"][0..1] != "RT" %>
     <p><%= tweet["text"] %></p><br>
   <% end %>
 <% end %>
+=======
+<<<<<<< HEAD
+<%= RequestsController.analyze(params[:q]).upcase %>
+<<<<<<< HEAD
+=======
+<% if RequestsController.analyze(params[:q]) == "negative" %>
+  <h3>Negative Nancy</h3>
+<% else %>
+  <h3>Positive Paula</h3>
+<% end %>
+>>>>>>> parent of de99fdf... Updated positive/negative results display to include neutral.
+=======
+>>>>>>> 4be7fd9bfa4fa7c384f324e8dabc9e489476448b
+>>>>>>> 6a3d2a835b1d66104dd24b4ae1f3131494dcc5e9
 
 <p>Analyzed Text: "<%= params[:q] %>"</p>
