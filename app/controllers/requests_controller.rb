@@ -18,28 +18,29 @@ class RequestsController < ApplicationController
 
     return tweets
 
+    user_text = ""
 
     tweets.each do |tweet|
-      tweet_text = tweet["text"]
-      tweet_array = tweet_text.split(" ")
-      tweet_array.each do |word|
-        if word[0] == "@" || word[0] == "#"
+      user_text + tweet["text"]
+      #
+      # tweet_array = tweet_text.split(" ")
+      # tweet_array.each do |word|
+      #   if word[0] == "@" || word[0] == "#"
           # puts word # this is working but hashtag and handle removal isn't
           # tweet_array.delete(word)
           # tweet_text = tweet_array.join(" ")
           # puts tweet_text
-        end
-      end
-
-      if tweet["text"][0] == "R" && tweet["text"][1] == "T"
-        tweets.delete(tweet)
-      end
+        # end
+      # end
+      #
+      # if tweet["text"][0] == "R" && tweet["text"][1] == "T"
+      #   tweets.delete(tweet)
+      # end
     end
+
 
     # returns most recent 100 tweets
     # return tweets
-
-    tweet_string = ""
 
     tweets.each do |tweet|
       tweet_string + " " + tweet["text"]
