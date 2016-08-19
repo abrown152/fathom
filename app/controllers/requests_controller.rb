@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
     # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
     access_token = prepare_access_token
 
-    handle.gsub!("_", "%20")
+    handle.gsub!("_", "%5F")
 
     # puts handle
 
