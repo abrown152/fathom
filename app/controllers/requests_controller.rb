@@ -8,13 +8,11 @@ class RequestsController < ApplicationController
     # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
     access_token = prepare_access_token
 
+    # Replace underscores in Twitter handles in preparation for URL encoding
     handle.gsub!("_", "%5F")
 
-    # puts handle
-
-    # use the access token as an agent to get the home timeline
+    # use the access token as an agent to get the user's tweets
     response = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&count=100")
-
 
     tweets = JSON.parse(response.body)
 

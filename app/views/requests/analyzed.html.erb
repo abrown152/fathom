@@ -1,7 +1,9 @@
 <h4>Results</h4>
 
 <% RequestsController.analyze(params[:q]).each do |tweet| %>
-  <p><%= tweet["text"] %></p><br>
+  <% if tweet["text"][0] != "@" && tweet["text"][0..1] != ".@" && tweet["text"][0..1] != "RT" %>
+    <p><%= tweet["text"] %></p><br>
+  <% end %>
 <% end %>
 
 <!-- <% if RequestsController.analyze(params[:q]) == "negative" %>
