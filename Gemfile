@@ -18,6 +18,9 @@ gem 'httparty'
 gem 'twitter'
 gem 'oauth'
 
+gem 'sqlite3'
+# Need to use Postgres instead of sqlite but error throws without sqlite gem rn
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
