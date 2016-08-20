@@ -19,6 +19,9 @@ gem 'twitter'
 gem 'oauth'
 gem 'excon'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 gem 'sqlite3'
 # Need to use Postgres instead of sqlite but error throws without sqlite gem rn
 
