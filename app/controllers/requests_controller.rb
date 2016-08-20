@@ -1,6 +1,7 @@
 require "./config/initializers/twitter"
 require "httparty"
 require 'twitter'
+require 'excon'
 
 class RequestsController < ApplicationController
 
@@ -33,19 +34,50 @@ class RequestsController < ApplicationController
 
     @user_text = @user_text[0...2000]
 
-    response = Unirest.get "https://twinword-sentiment-analysis.p.mashape.com/analyze/",
-      headers:{
-        "X-Mashape-Key" => ENV["TEST_KEY"],
-        "Content-Type" => "application/x-www-form-urlencoded",
-        "Accept" => "application/json"
-      },
-      parameters:{
-        "text" => @user_text
-      }
-      @response = response.body["type"]
+    # response = Unirest.get "https://twinword-sentiment-analysis.p.mashape.com/analyze/",
+    #   headers:{
+    #     "X-Mashape-Key" => ENV["TEST_KEY"],
+    #     "Content-Type" => "application/x-www-form-urlencoded",
+    #     "Accept" => "application/json"
+    #   },
+    #   parameters:{
+    #     "text" => @user_text
+    #   }
+    #   @response = response.body["type"]
 
-      return @response
+
+
+    # @user_text = "hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello"
+
+      response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/",
+        headers:{
+          "Content-Type" => "plain/text"
+        },
+        :body => @user_text,
+        :password => "iZTY7ZvkKYix",
+        :user => "f350af80-6ec2-4b48-8940-9c62b84819cf")
+
+
+        @response = response.body
+
+
+
+
+
+      return response.body
   end
+  #
+  # Watson API Call:
+
+
+# Watson API Credentials:
+#   {
+#   "credentials": {
+#     "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+#     "password": "iZTY7ZvkKYix",
+#     "username": "f350af80-6ec2-4b48-8940-9c62b84819cf"
+#   }
+# }
 
 
   def search

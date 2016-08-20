@@ -17,6 +17,7 @@ gem 'turbolinks'
 gem 'httparty'
 gem 'twitter'
 gem 'oauth'
+gem 'excon'
 
 gem 'sqlite3'
 # Need to use Postgres instead of sqlite but error throws without sqlite gem rn
