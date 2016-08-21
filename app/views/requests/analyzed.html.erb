@@ -1,3 +1,28 @@
-<p>Analyzed Twitter Handle: @<%= params[:q] %></p>
+<div class="container-fluid bg-1 text-center">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= link_to "fathom", root_path %></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "TRENDS" %></li>
+          <li><%= link_to "ABOUT", about_path %></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>Result: <%= RequestsController.analyze(params[:q]) %></p><br>
+<h3>Analyzed Twitter Handle: @<%= params[:q] %></h3>
+<br>
+<br>
+<br>
+
+<h3>Result: <%= RequestsController.analyze(params[:q]) %></h3><br>
+</div>

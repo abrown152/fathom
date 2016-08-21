@@ -1,8 +1,38 @@
-<div id="main-container" class="container-fluid">
-  <h4>Please enter the text you'd like to analyze...</h4>
-  <%= form_tag analyze_path do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
-  <% end %>
+<div class="container-fluid bg-1 text-center">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><%= link_to "fathom", root_path %></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><%= link_to "TRENDS" %></li>
+          <li><%= link_to "ABOUT", about_path %></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="form-group">
+    <h3>Please enter Twitter handle you'd like to analyze:</h3>
+    <%= form_tag analyze_path do %>
+      <%= label_tag(:q, "@") %>
+      <%= text_field_tag(:q) %>
+      <div class="btn"><%= submit_tag("Analyze!") %></div>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
 </div>
