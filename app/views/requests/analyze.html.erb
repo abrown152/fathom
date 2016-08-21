@@ -11,7 +11,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><%= link_to "TRENDS" %></li>
+          <li><%= link_to "TRENDS" %></li>
           <li><%= link_to "ABOUT", about_path %></li>
           <li><a href="#">CONTACT</a></li>
         </ul>
@@ -20,7 +20,7 @@
   </nav>
   <br>
   <div class="form-group">
-    <h3>Please enter Twitter handle you'd like to analyze:</h3>
+    <h3>Enter a Twitter handle you'd like to analyze:</h3>
     <%= form_tag analyze_path do %>
       <%= label_tag(:q, "@") %>
       <%= text_field_tag(:q) %>
