@@ -23,5 +23,17 @@
 <br>
 
 <h3>Result:</h3><br>
-  <%= RequestsController.analyze(params[:q]) %>
+  <%results = RequestsController.analyze(params[:q]) %>
+  <table>
+    <tr>
+      <th>Trait</th>
+      <th>Score</th>
+    </tr>
+    <% results.each do |trait_array| %>
+    <tr>
+      <td><%= trait_array[0] %></td>
+      <td><%= trait_array[1] %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
