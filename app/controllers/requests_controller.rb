@@ -15,6 +15,8 @@ class RequestsController < ApplicationController
     # use the access token as an agent to get the user's tweets
     response = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&count=100")
 
+    puts response
+
     tweets = JSON.parse(response.body)
 
     # Compile all tweet text into a single string for analysis
@@ -45,39 +47,19 @@ class RequestsController < ApplicationController
     #   }
     #   @response = response.body["type"]
 
+    response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/" + "/v3/tone?version=2016-05-19",
+    :headers => {
+    "Content-Type" => "text/plain"
+    },
+    :body => @user_text,
+    :password => "iZTY7ZvkKYix",
+    :user => "f350af80-6ec2-4b48-8940-9c62b84819cf")
 
+      # @response = response.body
 
-    # @user_text = "hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello"
-
-      response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/",
-        headers:{
-          "Content-Type" => "plain/text"
-        },
-        :body => @user_text,
-        :password => "iZTY7ZvkKYix",
-        :user => "f350af80-6ec2-4b48-8940-9c62b84819cf")
-
-
-        @response = response.body
-
-
-
-
-
-      return response.body
+    return response.body
   end
-  #
-  # Watson API Call:
 
-
-# Watson API Credentials:
-#   {
-#   "credentials": {
-#     "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-#     "password": "iZTY7ZvkKYix",
-#     "username": "f350af80-6ec2-4b48-8940-9c62b84819cf"
-#   }
-# }
 
 
   def search
