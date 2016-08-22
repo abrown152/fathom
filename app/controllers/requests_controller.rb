@@ -36,18 +36,7 @@ class RequestsController < ApplicationController
 
     @user_text = @user_text[0...2000]
 
-    # response = Unirest.get "https://twinword-sentiment-analysis.p.mashape.com/analyze/",
-    #   headers:{
-    #     "X-Mashape-Key" => ENV["TEST_KEY"],
-    #     "Content-Type" => "application/x-www-form-urlencoded",
-    #     "Accept" => "application/json"
-    #   },
-    #   parameters:{
-    #     "text" => @user_text
-    #   }
-    #   @response = response.body["type"]
-
-    response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/" + "/v3/tone?version=2016-05-19",
+    response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/" + "/v3/tone?version=2016-05-19&sentences=false",
     :headers => {
     "Content-Type" => "text/plain"
     },
@@ -55,9 +44,19 @@ class RequestsController < ApplicationController
     :password => "iZTY7ZvkKYix",
     :user => "f350af80-6ec2-4b48-8940-9c62b84819cf")
 
-      # @response = response.body
+    # response = JSON.parse(RestClient.get(tone_url))
+
+    # response = JSON.parse(response)
 
     return response.body
+
+    response["document_tone"]["tone_categories"][0]["tones"]
+
+    # @response = response.body
+
+    # return @response["document_tone"]["tone_categories"][0]["tones"]
+
+    # return response.body
   end
 
 
