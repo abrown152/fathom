@@ -245,6 +245,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  json
   minitest-rails
   minitest-reporters
   minitest-vcr

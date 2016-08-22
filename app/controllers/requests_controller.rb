@@ -2,6 +2,7 @@ require "./config/initializers/twitter"
 require "httparty"
 require 'twitter'
 require 'excon'
+require 'json'
 
 class RequestsController < ApplicationController
 
@@ -14,8 +15,6 @@ class RequestsController < ApplicationController
 
     # use the access token as an agent to get the user's tweets
     response = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&count=100")
-
-    puts response
 
     tweets = JSON.parse(response.body)
 
@@ -44,19 +43,18 @@ class RequestsController < ApplicationController
     :password => "iZTY7ZvkKYix",
     :user => "f350af80-6ec2-4b48-8940-9c62b84819cf")
 
-    # response = JSON.parse(RestClient.get(tone_url))
+    response = JSON.parse(response.body)
 
-    # response = JSON.parse(response)
+    @characteristics_hash = {}
 
-    return response.body
+    response["document_tone"]["tone_categories"].each do |result_types|
+      result_types["tones"].each do |trait|
+        @characteristics_hash[trait["tone_name"]] = trait["score"]
+      end
+    end
 
-    response["document_tone"]["tone_categories"][0]["tones"]
+    return @characteristics_hash
 
-    # @response = response.body
-
-    # return @response["document_tone"]["tone_categories"][0]["tones"]
-
-    # return response.body
   end
 
 

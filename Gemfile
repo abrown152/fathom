@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
+gem 'json'
+
 gem 'httparty'
 gem 'twitter'
 gem 'oauth'
