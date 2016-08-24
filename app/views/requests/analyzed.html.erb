@@ -20,14 +20,12 @@
   </nav>
 
 <h3>Analyzed Twitter Handle: @<%= params[:q] %></h3>
-<br>
-
-<h3>Result:</h3><br>
+<h3>Results!</h3><br>
   <%results = RequestsController.analyze(params[:q]) %>
-  <table>
+  <table class="table">
     <tr>
-      <th>Trait</th>
-      <th>Score</th>
+      <th class="headers">Trait</th>
+      <th class="headers">Score</th>
     </tr>
     <% results.each do |trait_array| %>
     <tr>

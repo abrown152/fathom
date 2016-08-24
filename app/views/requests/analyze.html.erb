@@ -22,9 +22,9 @@
   <div class="form-group">
     <h3>Enter a Twitter handle you'd like to analyze:</h3>
     <%= form_tag analyze_path do %>
-      <%= label_tag(:q, "@") %>
-      <%= text_field_tag(:q) %>
-      <div class="btn"><%= submit_tag("Analyze!") %></div>
+      <div class="handle"><%= label_tag(:q, "@") %></div>
+      <div class="input"><%= text_field_tag(:q) %></div>
+      <button type="button" class="btn btn-default">Analyze!</button>
     <% end %>
   </div>
   <br>

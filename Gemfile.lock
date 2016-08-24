@@ -130,7 +130,6 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.5.1)
-    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -250,7 +249,6 @@ DEPENDENCIES
   minitest-reporters
   minitest-vcr
   oauth
-  pg (~> 0.15)
   pry-rails
   rails (= 4.2.6)
   sass-rails (~> 5.0)

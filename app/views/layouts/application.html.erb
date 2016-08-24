@@ -12,15 +12,7 @@
 
 
 <body>
-  <div class="container-fluid bg-1 text-center">
-    <div class="yield"><%= yield %></div>
-
-    <footer class="container-fluid bg-4 text-center">
-      <p>Credit/link to Twitter & IBM.</p>
-    </footer>
-  </div>
-
-  <style>
+<style>
   .bg-1 {
       background-color: #1abc9c; /* Green */
       color: #ffffff;
@@ -64,6 +56,11 @@
       color: #f5f6f7;
   }
 
+  .input {
+    color: black;
+    display: inline;
+  }
+
   table, th, td {
     text-align: center;
     margin-left: auto;
@@ -73,6 +70,32 @@
   }
 
   p {font-size: 16px;}
-  </style>
+
+  .btn {
+    font-size: 18px;
+    color: #1abc9c;
+    filter: brightness(5%);
+  }
+
+  .btn:hover {
+    filter: invert(100%);
+  }
+
+  .handle {
+    font-size: 26px;
+    display: inline;
+  }
+</style>
+
+
+  <div class="container-fluid bg-1 text-center">
+    <div class="yield"><%= yield %></div>
+
+    <footer class="container-fluid bg-4 text-center">
+      <p>Credit/link to Twitter & IBM.</p>
+    </footer>
+  </div>
+
+
 </body>
 </html>

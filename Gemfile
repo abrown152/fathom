@@ -25,6 +25,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 gem 'sqlite3'
+# gem 'pg', '~> 0.15'
+
+# gem 'sqlite3'
 # Need to use Postgres instead of sqlite but error throws without sqlite gem rn
 
 # Use jquery as the JavaScript library
@@ -35,7 +38,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'unirest', '1.1.2'
 gem 'addressable', '2.3.6'
-gem 'pg', '~> 0.15'
 # gem 'unicorn'
 
 # Use Capistrano for deployment

@@ -57,10 +57,4 @@ class RequestsController < ApplicationController
 
   end
 
-
-
-  def search
-    @search_results = FathomWrapper.search
-  end
-
 end
