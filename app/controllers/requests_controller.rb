@@ -3,6 +3,7 @@ require "httparty"
 require 'twitter'
 require 'excon'
 require 'json'
+require 'magic_cloud'
 
 class RequestsController < ApplicationController
 
@@ -35,7 +36,7 @@ class RequestsController < ApplicationController
 
     @user_text = @user_text[0...2000]
 
-    response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/" + "/v3/tone?version=2016-05-19&sentences=false",
+    response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/" + "/v3/tone?version=2016-05-19",
     :headers => {
     "Content-Type" => "text/plain"
     },
@@ -45,6 +46,8 @@ class RequestsController < ApplicationController
 
     response = JSON.parse(response.body)
 
+    puts response
+
     @characteristics_hash = {}
 
     response["document_tone"]["tone_categories"].each do |result_types|
@@ -52,6 +55,18 @@ class RequestsController < ApplicationController
         @characteristics_hash[trait["tone_name"]] = trait["score"]
       end
     end
+
+    @words = [
+      ["test", 50],
+      ["me", 40],
+      ["tenderly", 30]
+    ]
+
+    cloud = MagicCloud::Cloud.new(@words, rotate: :free, scale: :log)
+
+    puts cloud
+
+    # return cloud
 
     return @characteristics_hash
 

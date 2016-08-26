@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
+gem 'magic_cloud'
+
 gem 'json'
 
 gem 'httparty'
@@ -48,7 +50,6 @@ group :development, :test do
   gem 'byebug'
   gem 'minitest-vcr'
   gem 'minitest-reporters'
-  gem 'pry-rails'
   gem 'webmock'
   gem 'dotenv-rails'
   gem 'minitest-rails'
