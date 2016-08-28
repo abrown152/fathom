@@ -68,10 +68,45 @@ class RequestsController < ApplicationController
 
     @results_hash["traits"] = @characteristics_hash
 
-    return @results_hash
+    Request.create(username: @results_hash["username"],
+    location: @results_hash["location"],
+    anger: @results_hash["traits"]["Anger"],
+    disgust: @results_hash["traits"]["Disgust"],
+    fear: @results_hash["traits"]["Fear"],
+    joy: @results_hash["traits"]["Joy"],
+    sadness: @results_hash["traits"]["Sadness"],
+    analytical: @results_hash["traits"]["Analytical"],
+    confident: @results_hash["traits"]["Confident"],
+    tentative: @results_hash["traits"]["Tentative"],
+    openness: @results_hash["traits"]["Openness"],
+    conscientiousness: @results_hash["traits"]["Conscientiousness"],
+    extraversion: @results_hash["traits"]["Extraversion"],
+    agreeableness: @results_hash["traits"]["Agreeableness"],
+    emotional_range: @results_hash["traits"]["Emotional Range"]
+    )
 
-    # return @characteristics_hash
+    # return @results_hash
 
+    return @characteristics_hash
+
+  end
+
+  def create
+    t.string :username
+    t.string :location
+    t.float :anger
+    t.float :disgust
+    t.float :fear
+    t.float :joy
+    t.float :sadness
+    t.float :analytical
+    t.float :confident
+    t.float :tentative
+    t.float :openness
+    t.float :conscientiousness
+    t.float :extraversion
+    t.float :agreeableness
+    t.float :emotional_range
   end
 
 end

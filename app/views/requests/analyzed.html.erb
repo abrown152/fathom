@@ -21,8 +21,8 @@
 
 <h3>Analyzed Twitter Handle: @<%= params[:q] %></h3>
 <h3>Results!</h3><br>
-  <%= results = RequestsController.analyze(params[:q]) %>
-  <!-- <table class="table">
+  <%results = RequestsController.analyze(params[:q]) %>
+  <table class="table">
     <tr>
       <th class="headers">Trait</th>
       <th class="headers">Score</th>
@@ -33,5 +33,5 @@
       <td><%= trait_array[1] %></td>
     </tr>
     <% end %>
-  </table> -->
+  </table>
 </div>
