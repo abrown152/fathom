@@ -3,7 +3,7 @@ require "httparty"
 require 'twitter'
 require 'excon'
 require 'json'
-require 'magic_cloud'
+require 'jqcloud-rails'
 
 class RequestsController < ApplicationController
 
@@ -18,6 +18,12 @@ class RequestsController < ApplicationController
     response = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&count=100")
 
     tweets = JSON.parse(response.body)
+
+    @results_hash = {}
+
+    @results_hash["username"] = tweets[0]["user"]["screen_name"]
+
+    @results_hash["location"] = tweets[0]["user"]["location"]
 
     # Compile all tweet text into a single string for analysis
     @user_text = ""
@@ -60,7 +66,11 @@ class RequestsController < ApplicationController
       ["tenderly", 30]
     ]
 
-    return @characteristics_hash
+    @results_hash["traits"] = @characteristics_hash
+
+    return @results_hash
+
+    # return @characteristics_hash
 
   end
 
