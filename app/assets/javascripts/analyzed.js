@@ -15,6 +15,3 @@ var list = tags.map(function(word) {
 });
 
 console.log(list)
-
-
-WordCloud(document.getElementById("cloud"), {list: list});

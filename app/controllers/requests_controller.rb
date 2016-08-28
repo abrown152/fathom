@@ -46,8 +46,6 @@ class RequestsController < ApplicationController
 
     response = JSON.parse(response.body)
 
-    puts response
-
     @characteristics_hash = {}
 
     response["document_tone"]["tone_categories"].each do |result_types|
@@ -61,12 +59,6 @@ class RequestsController < ApplicationController
       ["me", 40],
       ["tenderly", 30]
     ]
-
-    cloud = MagicCloud::Cloud.new(@words, rotate: :free, scale: :log)
-
-    puts cloud
-
-    # return cloud
 
     return @characteristics_hash
 
