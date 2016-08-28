@@ -68,22 +68,25 @@ class RequestsController < ApplicationController
 
     @results_hash["traits"] = @characteristics_hash
 
-    Request.create(username: @results_hash["username"],
-    location: @results_hash["location"],
-    anger: @results_hash["traits"]["Anger"],
-    disgust: @results_hash["traits"]["Disgust"],
-    fear: @results_hash["traits"]["Fear"],
-    joy: @results_hash["traits"]["Joy"],
-    sadness: @results_hash["traits"]["Sadness"],
-    analytical: @results_hash["traits"]["Analytical"],
-    confident: @results_hash["traits"]["Confident"],
-    tentative: @results_hash["traits"]["Tentative"],
-    openness: @results_hash["traits"]["Openness"],
-    conscientiousness: @results_hash["traits"]["Conscientiousness"],
-    extraversion: @results_hash["traits"]["Extraversion"],
-    agreeableness: @results_hash["traits"]["Agreeableness"],
-    emotional_range: @results_hash["traits"]["Emotional Range"]
-    )
+
+    if (Request.find_by(:username => "#{@results_hash["username"]}") == nil)
+      Request.create(username: @results_hash["username"],
+      location: @results_hash["location"],
+      anger: @results_hash["traits"]["Anger"],
+      disgust: @results_hash["traits"]["Disgust"],
+      fear: @results_hash["traits"]["Fear"],
+      joy: @results_hash["traits"]["Joy"],
+      sadness: @results_hash["traits"]["Sadness"],
+      analytical: @results_hash["traits"]["Analytical"],
+      confident: @results_hash["traits"]["Confident"],
+      tentative: @results_hash["traits"]["Tentative"],
+      openness: @results_hash["traits"]["Openness"],
+      conscientiousness: @results_hash["traits"]["Conscientiousness"],
+      extraversion: @results_hash["traits"]["Extraversion"],
+      agreeableness: @results_hash["traits"]["Agreeableness"],
+      emotional_range: @results_hash["traits"]["Emotional Range"]
+      )
+    end
 
     # return @results_hash
 
