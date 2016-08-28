@@ -7,7 +7,7 @@ require 'jqcloud-rails'
 
 class RequestsController < ApplicationController
 
-  def self.analyze(handle)
+  def self.call_twitter(handle)
     # Replace underscores in Twitter handles in preparation for URL encoding
     handle.gsub!("_", "%5F")
 
@@ -42,6 +42,11 @@ class RequestsController < ApplicationController
 
     @user_text = @user_text[0...2000]
 
+    RequestsController.call_watson(@user_text)
+
+  end
+
+  def self.call_watson(tweets)
     response = Excon.post("https://gateway.watsonplatform.net/tone-analyzer/api/" + "/v3/tone?version=2016-05-19",
     :headers => {
     "Content-Type" => "text/plain"
@@ -52,6 +57,10 @@ class RequestsController < ApplicationController
 
     response = JSON.parse(response.body)
 
+    RequestsController.compile(response)
+  end
+
+  def self.compile(response)
     @characteristics_hash = {}
 
     response["document_tone"]["tone_categories"].each do |result_types|
@@ -68,7 +77,7 @@ class RequestsController < ApplicationController
 
     @results_hash["traits"] = @characteristics_hash
 
-
+    # Save new query results to database
     if (Request.find_by(:username => "#{@results_hash["username"]}") == nil)
       Request.create(username: @results_hash["username"],
       location: @results_hash["location"],
@@ -88,28 +97,8 @@ class RequestsController < ApplicationController
       )
     end
 
-    # return @results_hash
-
     return @characteristics_hash
 
-  end
-
-  def create
-    t.string :username
-    t.string :location
-    t.float :anger
-    t.float :disgust
-    t.float :fear
-    t.float :joy
-    t.float :sadness
-    t.float :analytical
-    t.float :confident
-    t.float :tentative
-    t.float :openness
-    t.float :conscientiousness
-    t.float :extraversion
-    t.float :agreeableness
-    t.float :emotional_range
   end
 
 end

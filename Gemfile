@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'unirest', '1.1.2'
 gem 'addressable', '2.3.6'
-# gem 'unicorn'
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
