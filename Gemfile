@@ -18,6 +18,8 @@ gem 'jqcloud-rails'
 
 gem 'json'
 
+gem 'area'
+
 gem 'httparty'
 gem 'twitter'
 gem 'oauth'

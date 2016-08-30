@@ -4,8 +4,13 @@ require 'twitter'
 require 'excon'
 require 'json'
 require 'jqcloud-rails'
+require 'area'
+
 
 class RequestsController < ApplicationController
+  # def about
+  #   @disclaimer[:notice] = "**Tweet analysis is currently limited to tweets composed in English."
+  # end
 
   def self.call_twitter(handle)
     # Replace underscores in Twitter handles in preparation for URL encoding
@@ -23,7 +28,18 @@ class RequestsController < ApplicationController
 
     @results_hash["username"] = tweets[0]["user"]["screen_name"]
 
-    @results_hash["location"] = tweets[0]["user"]["location"]
+    #Convert user's free form location to state abbreviation.
+
+    if (tweets[0]["user"]["location"].to_zip != nil || tweets[0]["user"]["location"].to_zip == [])
+      @user_location = tweets[0]["user"]["location"].to_zip
+      if (@user_location.length > 0)
+        @user_location = @user_location[0].to_region
+
+        @results_hash["location"] = @user_location[-2, 2]
+      end
+    end
+
+    puts @results_hash
 
     # Compile all tweet text into a single string for analysis
     @user_text = ""

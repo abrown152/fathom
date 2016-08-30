@@ -15,5 +15,7 @@ class Requests < ActiveRecord::Migration
     add_column :requests, :extraversion, :float
     add_column :requests, :agreeableness, :float
     add_column :requests, :emotional_range, :float
+    add_column :requests, :latitude, :float
+    add_column :requests, :longitude, :float
   end
 end
