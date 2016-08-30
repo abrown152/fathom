@@ -121,7 +121,52 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @state_results = Request.find_by("location = ?", params[:state_results][:location])
+    # DRY out this method. So ugly.
+    @selected_state = params[:state_results][:location]
+    @average_anger = 0
+    @average_disgust = 0
+    @average_fear = 0
+    @average_joy = 0
+    @average_sadness = 0
+    @average_analytical = 0
+    @average_confident = 0
+    @average_tentative = 0
+    @average_openness = 0
+    @average_conscientiousness = 0
+    @average_extraversion = 0
+    @average_agreeableness = 0
+    @average_emotional_range = 0
+
+    @state_results = Request.where(["location = :u", { u: params[:state_results][:location] }])
+
+    @state_results.each do |record|
+      @average_anger += record.anger
+      @average_disgust += record.disgust
+      @average_fear += record.fear
+      @average_joy += record.joy
+      @average_sadness += record.sadness
+      @average_analytical += record.analytical
+      @average_confident += record.confident
+      @average_tentative += record.tentative
+      @average_openness += record.openness
+      @average_conscientiousness += record.conscientiousness
+      @average_extraversion += record.extraversion
+      @average_agreeableness += record.agreeableness
+      @average_emotional_range += record.emotional_range
+    end
+    @average_anger = ((@average_anger / @state_results.length)*100).round
+    @average_disgust = ((@average_disgust / @state_results.length)*100).round
+    @average_fear = ((@average_fear / @state_results.length)*100).round
+    @average_joy = ((@average_joy / @state_results.length)*100).round
+    @average_sadness = ((@average_sadness / @state_results.length)*100).round
+    @average_analytical = ((@average_analytical / @state_results.length)*100).round
+    @average_confident = ((@average_confident / @state_results.length)*100).round
+    @average_tentative = ((@average_tentative / @state_results.length)*100).round
+    @average_openness = ((@average_openness / @state_results.length)*100).round
+    @average_conscientiousness = ((@average_conscientiousness / @state_results.length)*100).round
+    @average_extraversion = ((@average_extraversion / @state_results.length)*100).round
+    @average_agreeableness = ((@average_agreeableness / @state_results.length)*100).round
+    @average_emotional_range = ((@average_emotional_range / @state_results.length)*100).round
   end
 
 end

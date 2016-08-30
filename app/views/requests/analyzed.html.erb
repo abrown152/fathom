@@ -30,8 +30,9 @@
     <% results.each do |trait_array| %>
     <tr>
       <td><%= trait_array[0] %></td>
-      <td><%= trait_array[1] %></td>
+      <td><%= (trait_array[1]*100).round %></td>
     </tr>
     <% end %>
   </table>
+  <p>**Scores are based on a scale of 0-100.</p>
 </div>

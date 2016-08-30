@@ -1,1 +1,90 @@
-<h1>Hello, World!</h1>
+<div class="container-fluid bg-1 text-center">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= link_to "fathom", root_path %></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><%= link_to "TRENDS", trends_path %></li>
+          <li><%= link_to "ABOUT", about_path %></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<br>
+<h3>Average Scores for <%= @selected_state %></h3>
+<br>
+
+<table class="table">
+  <tr>
+    <th>Trait</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <td>Anger</td>
+    <td><%= @average_anger %></td>
+  </tr>
+  <tr>
+    <td>Disgust</td>
+    <td><%= @average_disgust %></td>
+  </tr>
+  <tr>
+    <td>Fear</td>
+    <td><%= @average_fear %></td>
+  </tr>
+  <tr>
+    <td>Joy</td>
+    <td><%= @average_joy %></td>
+  </tr>
+  <tr>
+    <td>Sadness</td>
+    <td><%= @average_sadness %></td>
+  </tr>
+  <tr>
+    <td>Analytical</td>
+    <td><%= @average_analytical %></td>
+  </tr>
+  <tr>
+    <td>Confident</td>
+    <td><%= @average_confident %></td>
+  </tr>
+  <tr>
+    <td>Tentative</td>
+    <td><%= @average_tentative %></td>
+  </tr>
+  <tr>
+    <td>Openness</td>
+    <td><%= @average_openness %></td>
+  </tr>
+  <tr>
+    <td>Conscientiousness</td>
+    <td><%= @average_conscientiousness %></td>
+  </tr>
+  <tr>
+    <td>Extraversion</td>
+    <td><%= @average_extraversion %></td>
+  </tr>
+  <tr>
+    <td>Agreeableness</td>
+    <td><%= @average_agreeableness %></td>
+  </tr>
+  <tr>
+    <td>Emotional Range</td>
+    <td><%= @average_emotional_range %></td>
+  </tr>
+</table>
+<p>**Scores are based on a scale of 0-100.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
