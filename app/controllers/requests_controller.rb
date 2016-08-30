@@ -29,7 +29,6 @@ class RequestsController < ApplicationController
     @results_hash["username"] = tweets[0]["user"]["screen_name"]
 
     #Convert user's free form location to state abbreviation.
-
     if (tweets[0]["user"]["location"].to_zip != nil || tweets[0]["user"]["location"].to_zip == [])
       @user_location = tweets[0]["user"]["location"].to_zip
       if (@user_location.length > 0)
@@ -113,6 +112,7 @@ class RequestsController < ApplicationController
       )
     end
 
+    puts Request.select(:location).map(&:location).uniq.class
     return @characteristics_hash
 
   end

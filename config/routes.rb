@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   post '/search', :to => 'requests#search', as: 'search'
 
+  get '/trends', :to => 'requests#trends', as: 'trends'
+
 
 end
