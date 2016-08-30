@@ -18,12 +18,17 @@
     </div>
   </nav>
 <br>
-<h3>Trends</h3>
 <br>
 <%= bootstrap_form_for :state_results, url: {action: "show"}, html: {method: "get"} do |f| %>
   <%= f.select :location, options_for_select(@states), {}, { id: 'state_select' } %>
   <%= f.submit "Go!" %>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>

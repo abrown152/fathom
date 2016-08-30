@@ -14,16 +14,15 @@
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "TRENDS", trends_path %></li>
           <li class="active"><%= link_to "ABOUT", about_path %></li>
-          <li><a href="#">CONTACT</a></li>
         </ul>
       </div>
     </div>
   </nav>
 <br>
-<h3>About Fathom</h3>
+<h3><%= t('about_title') %></h3>
 <br>
-<p>Fathom is an open-source exploration of the intersection between technology and psychology.</p>
-<p>Using the Twitter API and IBM's Watson Tone Analyzer API, Fathom generates a comprehensive personality profile based on a user's tweets. Source code can be found <a href="https://github.com/abrown152/fathom" target="_blank">here</a>.</p>
+<p><%= t('about_p1') %></p>
+<p><%= t('about_p2') %><a href="https://github.com/abrown152/fathom" target="_blank">here</a>.</p>
 <br>
 <br>
 <br>

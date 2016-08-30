@@ -18,13 +18,13 @@
     </div>
   </nav>
 
-<h3>Analyzed Twitter Handle: @<%= params[:q] %></h3>
-<h3>Results!</h3><br>
+<h3><%= t('analyzed_title') %><%= params[:q] %></h3>
+<h3><%= t('analyzed_results') %></h3><br>
   <%results = RequestsController.call_twitter(params[:q]) %>
   <table class="table">
     <tr>
-      <th class="headers">Trait</th>
-      <th class="headers">Score</th>
+      <th class="headers"><%= t('analyzed_trait') %></th>
+      <th class="headers"><%= t('analyzed_score') %></th>
     </tr>
     <% results.each do |trait_array| %>
     <tr>
@@ -33,5 +33,5 @@
     </tr>
     <% end %>
   </table>
-  <p>**Scores are based on a scale of 0-100.</p>
+  <p><%= t('score_scale') %></p>
 </div>

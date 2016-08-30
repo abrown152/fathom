@@ -19,7 +19,7 @@
   </nav>
   <br>
   <div class="form-group">
-    <h3>Enter a Twitter handle you'd like to analyze:</h3>
+    <h3><%= t('analyze_title') %></h3>
     <%= form_tag analyze_path do %>
       <div class="handle"><%= label_tag(:q, "@") %></div>
       <div class="input"><%= text_field_tag(:q) %></div>

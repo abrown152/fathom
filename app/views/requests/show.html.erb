@@ -18,68 +18,68 @@
     </div>
   </nav>
 <br>
-<h3>Average Scores for <%= @selected_state %></h3>
+<h3><%= t('trend_title') %><%= @selected_state %></h3>
 <br>
 
 <table class="table">
   <tr>
-    <th>Trait</th>
-    <th>Score</th>
+    <th><%= t('analyzed_trait') %></th>
+    <th><%= t('analyzed_score') %></th>
   </tr>
   <tr>
-    <td>Anger</td>
+    <td><%= t('anger') %></td>
     <td><%= @average_anger %></td>
   </tr>
   <tr>
-    <td>Disgust</td>
+    <td><%= t('disgust') %></td>
     <td><%= @average_disgust %></td>
   </tr>
   <tr>
-    <td>Fear</td>
+    <td><%= t('fear') %></td>
     <td><%= @average_fear %></td>
   </tr>
   <tr>
-    <td>Joy</td>
+    <td><%= t('joy') %></td>
     <td><%= @average_joy %></td>
   </tr>
   <tr>
-    <td>Sadness</td>
+    <td><%= t('sadness') %></td>
     <td><%= @average_sadness %></td>
   </tr>
   <tr>
-    <td>Analytical</td>
+    <td><%= t('analytical') %></td>
     <td><%= @average_analytical %></td>
   </tr>
   <tr>
-    <td>Confident</td>
+    <td><%= t('confident') %></td>
     <td><%= @average_confident %></td>
   </tr>
   <tr>
-    <td>Tentative</td>
+    <td><%= t('tentative') %></td>
     <td><%= @average_tentative %></td>
   </tr>
   <tr>
-    <td>Openness</td>
+    <td><%= t('openness') %></td>
     <td><%= @average_openness %></td>
   </tr>
   <tr>
-    <td>Conscientiousness</td>
+    <td><%= t('conscientiousness') %></td>
     <td><%= @average_conscientiousness %></td>
   </tr>
   <tr>
-    <td>Extraversion</td>
+    <td><%= t('extraversion') %></td>
     <td><%= @average_extraversion %></td>
   </tr>
   <tr>
-    <td>Agreeableness</td>
+    <td><%= t('agreeableness') %></td>
     <td><%= @average_agreeableness %></td>
   </tr>
   <tr>
-    <td>Emotional Range</td>
+    <td><%= t('emotional_range') %></td>
     <td><%= @average_emotional_range %></td>
   </tr>
 </table>
-<p>**Scores are based on a scale of 0-100.</p>
+<p><%= t('score_scale') %></p>
 <br>
 <br>
 <br>
