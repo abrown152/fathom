@@ -18,6 +18,8 @@ gem 'jqcloud-rails'
 
 gem 'json'
 
+gem 'bootstrap_form'
+
 gem 'area'
 
 gem 'httparty'
