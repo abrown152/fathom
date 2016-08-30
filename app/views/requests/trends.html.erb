@@ -11,8 +11,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "TRENDS", trends_path %></li>
-          <li class="active"><%= link_to "ABOUT", about_path %></li>
+          <li class="active"><%= link_to "TRENDS", trends_path %></li>
+          <li><%= link_to "ABOUT", about_path %></li>
           <li><a href="#">CONTACT</a></li>
         </ul>
       </div>
@@ -21,7 +21,11 @@
 <br>
 <h3>Trends</h3>
 <br>
-<p></p>
+<select name="location">
+  <%= @states.each do |request| %>
+    <option value="<%= request %>"><%= request %></option>
+  <% end %>
+</select>
 <br>
 <br>
 <br>

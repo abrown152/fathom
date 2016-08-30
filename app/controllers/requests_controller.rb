@@ -112,9 +112,12 @@ class RequestsController < ApplicationController
       )
     end
 
-    puts Request.select(:location).map(&:location).uniq.class
     return @characteristics_hash
 
+  end
+
+  def trends
+    @states = Request.select(:location).map(&:location).uniq
   end
 
 end
