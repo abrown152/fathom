@@ -120,4 +120,8 @@ class RequestsController < ApplicationController
     @states = Request.select(:location).map(&:location).uniq
   end
 
+  def show
+    @state_results = Request.find_by("location = ?", params[:state_results][:location])
+  end
+
 end

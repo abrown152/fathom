@@ -21,11 +21,10 @@
 <br>
 <h3>Trends</h3>
 <br>
-<select name="location">
-  <%= @states.each do |request| %>
-    <option value="<%= request %>"><%= request %></option>
-  <% end %>
-</select>
+<%= form_for :state_results, url: {action: "show"}, html: {method: "get"} do |f| %>
+  <%= f.select :location, options_for_select(@states), {}, { id: 'state_select' } %>
+  <%= f.submit "Go!" %>
+<% end %>
 <br>
 <br>
 <br>

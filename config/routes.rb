@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   get '/trends', :to => 'requests#trends', as: 'trends'
 
+  get '/show', :to => 'requests#show'
+
 
 end
