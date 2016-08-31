@@ -3,7 +3,7 @@ require "httparty"
 require 'twitter'
 require 'excon'
 require 'json'
-require 'jqcloud-rails'
+require 'magic_cloud'
 require 'area'
 
 

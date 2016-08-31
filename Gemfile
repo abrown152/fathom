@@ -14,7 +14,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
-gem 'jqcloud-rails'
+# gem 'jqcloud-rails'
+gem 'magic_cloud'
+
+gem 'puma'
 
 gem 'json'
 
