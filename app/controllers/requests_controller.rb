@@ -4,6 +4,7 @@ require 'twitter'
 require 'excon'
 require 'json'
 require 'magic_cloud'
+require 'rmagick'
 require 'area'
 
 

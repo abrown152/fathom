@@ -16,6 +16,7 @@ gem 'turbolinks'
 
 # gem 'jqcloud-rails'
 gem 'magic_cloud'
+gem 'rmagick'
 
 gem 'puma'
 

@@ -98,6 +98,10 @@
 
       <div><% word_array = [["test", 50], ["me", 40], ["tenderly", 30]] %></div>
       <div><%= cloud = MagicCloud::Cloud.new(word_array, rotate: :free, scale: :log) %></div>
+      <div><%= rcloud = cloud.draw(500, 500) %></div>
+      <div><% cloud_png = rcloud.to_blob {self.format="png"} %></div>
+      <img src="data:image/png;base64,<%=
+      Base64.encode64(cloud_png) %>">
       <br>
       <br>
       <br>
