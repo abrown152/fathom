@@ -26,6 +26,30 @@
       <th class="headers"><%= t('analyzed_trait') %></th>
       <th class="headers"><%= t('analyzed_score') %></th>
     </tr>
+
+    <div><% word_array = [
+      ["anger", 13],
+      ["disgust", 10],
+      ["fear", 34],
+      ["joy", 10],
+      ["sad", 5],
+      ["analytical", 1],
+      ["confident", 16],
+      ["tentative", 7],
+      ["open", 4],
+      ["conscientious", 2],
+      ["extravert", 18],
+      ["agreeable", 5],
+      ["emotionally intelligent", 5]
+      ] %></div>
+    <div><% cloud = MagicCloud::Cloud.new(word_array, rotate: :free, scale: :log) %></div>
+    <div><% rcloud = cloud.draw(600, 500) %></div>
+    <div><% cloud_png = rcloud.to_blob {self.format="png"} %></div>
+    <img class="cloud" src="data:image/png;base64,<%=
+    Base64.encode64(cloud_png) %>">
+
+    <br>
+    <br>
     <% results.each do |trait_array| %>
     <tr>
       <td><%= trait_array[0] %></td>

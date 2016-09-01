@@ -85,11 +85,9 @@ class RequestsController < ApplicationController
       end
     end
 
-    @words = [
-      ["test", 50],
-      ["me", 40],
-      ["tenderly", 30]
-    ]
+    @score_total = 0.0
+    @word_array = []
+    @running_total = 0
 
     @results_hash["traits"] = @characteristics_hash
 
