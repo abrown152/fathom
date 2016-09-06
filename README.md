@@ -12,4 +12,8 @@ Fathom is an open-source exploration of the intersection between technology and 
 
 2. Bundle install.
 
-3. Start rails server.
+3. Obtain API keys for Twitter API.
+
+4. Obtain API keys for IBM Watson Tone Analyzer API.
+
+5. Start rails server.
