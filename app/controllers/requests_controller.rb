@@ -21,8 +21,9 @@ class RequestsController < ApplicationController
     access_token = prepare_access_token
 
     # use the access token as an agent to get the user's tweets
+    logger.info("Making request")
     response = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&count=100")
-
+    logger.info("response is: #{response.body}")
     tweets = JSON.parse(response.body)
 
     @results_hash = {}
@@ -85,9 +86,7 @@ class RequestsController < ApplicationController
       end
     end
 
-    @score_total = 0.0
-    @word_array = []
-    @running_total = 0
+
 
     @results_hash["traits"] = @characteristics_hash
 
